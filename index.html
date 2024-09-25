@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="//embed.typeform.com/next/embed.js"></script>
+  <link rel="stylesheet" href="//embed.typeform.com/next/css/popup.css" />
+  <script src="https://unpkg.com/aframe-environment-component@1.3.3/dist/aframe-environment-component.min.js"></script>  
+  <script>
+  AFRAME.registerComponent('button', {
+    schema: {},
+
+    init: function () {
+      var data = this.data;
+      var el = this.el;  
+      var defaultColor = el.getAttribute('material').color;
+      var hovered = false
+
+      el.addEventListener('mouseenter', function () {
+        hovered = true
+      });
+
+      el.addEventListener('mouseleave', function () {
+        hovered = false
+      });
+      
+      el.addEventListener('mousedown', function () {
+        if (hovered) {
+          const { open, close, toggle, refresh } = window.tf.createPopup('tFRyBSva')
+          open()
+        }
+      });
+    }
+  });
+</script>
+  <title>Syleno - Beta Open Soon!</title>
+</head>
+<body>
+
+<a-scene>
+  <a-entity environment="preset: osiris"></a-entity>
+  <a-assets>
+    <img id="logo" src="/assets/Syleno.png">
+  </a-assets>
+  <a-camera>
+    <a-cursor></a-cursor>
+  </a-camera>
+  <a-image 
+         src="#logo"
+         position="0, 2, -3"
+         width="2"
+         height="2"
+  ></a-image>
+    <a-text 
+         text="value: An app for the next generation of computing;"
+         position="-2.1, 3.3, -3"
+         allign="center"
+         side="front"
+         scale="1, 1, 1"
+  ></a-text>
+      <a-text 
+         text="value: See back for more;"
+         position="-0.9, 0.7, -3"
+         allign="center"
+         side="front"
+         scale="1, 1, 1"
+  ></a-text>
+  <a-text 
+         text="value: Coming soon on Phones, Web Browsers and Computers near you;"
+         position="4, 2, 5"
+         allign="center"
+         side="back"
+         scale="-2, 2, 1"
+  ></a-text>
+  <a-box
+         button=""
+         position="0, 2, 5"
+         width="9, 0, 0"
+         opacity="0"
+  ></a-box>
+  
+</a-scene>
+
+</body>
+</html>
